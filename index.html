@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--<meta http-equiv="refresh" content="0; url=http://www.UCBerkDataFinal.com/" /> -->
+
+  <title>Final Project</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Final Project Data Analytics</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#overview">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="MapAcres.html">Maps/Graphs</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="bg-text-black">
+    
+    <div class="container text-center" >
+      <h1>Do visitors increase non-native species in National Parks?</h1>
+      <p class="lead">Final Project for Data Analytics at UC Berekley</p>
+    </div>
+  </header>
+  
+  
+  
+  
+  
+    <section id="Overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Overview</h2>
+          <p class="lead">For our group project, we are looking at biodiversity in National Parks. We came to a consensus to choose this data set because we are all passionate about the environment.
+            The selected dataset contains three csv files- one including species data, another containing data on the parks themselves and the third including annual visitation to the parks. More specifically, the species csv has information on classification of certain animals, which parks they can be found in, and how common they are among other things. The parks csv contains information on coordinates and acreage of the parks as well as which respective states they are located in. We also cleaned up the data and created an additional csv that included native vs non-native species. Contributors:</p>
+          <ul>
+            <li>Carmen Castanette</li>
+            <li>Kevin Green</li>
+            <li>Olivia Hughes</li>
+            <li>Su-Lin Terhell</li>
+            <li>Holley Voegtle</li>
+        <br>
+
+      <h4>Purpose</h4>
+      <p class="lead">The initial question we investigated was to see if the increase in visitors to a park would increase the non-native species found there. Further investigation of the data also looked to see if there were any correlations to parameters such as location of the park and the presence of non-native species, grouped categories such as mammals, reptiles, plants, etc, and finally a correlation matrix.</p>
+      <h4>Resources</h4>
+      <ul>
+        <li>Data:
+          <br>
+
+          https://www.kaggle.com/nationalparkservice/park-biodiversity/code
+          https://irma.nps.gov/STATS/SSRSReports/National%20Reports/Annual%20Visitation%20By%20Park%20(1979%20-%20Last%20Calendar%20Year)
+          </li>
+        <li>Presentaion:
+          <br>
+
+          https://docs.google.com/presentation/d/13Fxq3_L9WtVU9MQCDZ9MckQbnxAd2lvvS9wCFA8NcTg/edit?usp=sharing
+          </li>
+        <li>Software, Technologies, and Tools Utilized:
+          <br>
+          Amazon Web Services, PostgreSQL, Tableau, Python, JavaScript, HTML, CSS, Jupyter Notebooks, SciKit Learn, GitHub
+        </li>
+      </ul>
+    </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Analysis" class="bg-secondary">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto" style="color:white">
+          <h2>Analysis</h2>
+          <p class="lead">As with most data that is open source, our data needed to be extracted, transformed, and loaded (ETL). A number of DataFrames were created in Jupyter notebook (Python) and the use of Postgres was utilized for these DataFrames. From there linear regressions were tested and graphs were created.
+
+          <h2>Database</h2>
+          <p class="lead">For our database, we utilized Amazon Web Services to host a Postgres Relational Database Service (RDS). Various tables were loaded into Postgres using SQL through PGAdmin including our final machine learning table. This allowed all team members to access the database server through PGAdmin as tables were updated and added throughout the course of the project.</p>
+            
+          <h2>Machine Learning</h2>
+          <p class="lead">Pre-Processing Data:
+            The three csv's that were acquired from kaggle and loaded into our PostgresRDS needed to be transformed and merged into a final dataframe to feed the machine learning model. Below is an outline of steps that had to be completed for the final dataframe to come together:</p>
+            
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Summary</h2>
+          <p class="lead">As were are analyzing our data, we plan to present the information found through the use of a dashboard in Tableau as well as an interactive map to allows the user to see the location of the parks and the presence of native and non-native species.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">UC Berkeley Data Analytics 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

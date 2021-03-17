@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Final Project</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" 
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- d3 JavaScript -->
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- Bootstrap core CSS -->
+  
+
+  <!-- Custom styles for this template -->
+  <!--<link href="css/scrolling-nav.css" rel="stylesheet">--> 
+
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body style = "background-color: rgb(194, 196, 202)"></body>
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Final Project Data Analytics</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index.html">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="MapAcres.html">Maps/Graphs</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="bg-text-black">
+    
+    <div class="container text-center" >
+      
+      
+    </div>
+  </header>
+  
+  
+  <br class="container"> 
+  <!-- The div that holds our map -->
+    
+    <div id="mapid" style="width:1000px;height: 600px; margin:auto"></div>
+      <div class="container text-center">
+        <h2>Interactive map showing acerage of each National Park</h2>
+      </div>
+    <br>
+    <br>
+    <br>
+
+
+    <div class = "row">
+      <div style = "width:1000px;height: 600px; margin:auto">
+        <img  src="parkAcreageForStates.png">
+        <h6>This bubble chart displays the total acreage of national park land each state has. Alaska by far has the largest amount of national park land with over 31 million acres of land reserved for national parks.</h6>
+      </div>  
+    </div>
+    
+    <div class = "row">
+      <div style = "width:1000px;height: 600px; margin:auto">
+        <img src="Categories_Species.png">
+        <h6>Vascular plants were the most recorded species throughout national parks. Crabs/Lobsters were the least recorded species throughout national parks, which makes sense given they are usually found in the ocean. National Parks span the entire US far beyond the coasts!</h6>
+      </div>  
+    </div>
+
+    <div class = "row">
+      <div style = "width:1000px;height: 600px; margin:auto">
+          <img src="nativeVsNonNative.png">
+          <h6>There were significantly more native species found within national parks than Not Native species. However, almost as many recorded species were unknown, meaning they could not be identified as native or not native.</h6>
+        </div>  
+      </div>
+      
+      <div style='margin-left: 50px; margin-right: 50px; margin-bottom: 50px;'>
+      <div class='tableauPlaceholder' id='viz1615599222458'>
+        <noscript><a href='#'>
+          <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisitationOvera10YearSpan&#47;visitationovera10yearspan&#47;1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz'  style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <param name='embed_code_version' value='3' /> 
+        <param name='site_root' value='' />
+        <param name='name' value='VisitationOvera10YearSpan&#47;visitationovera10yearspan' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisitationOvera10YearSpan&#47;visitationovera10yearspan&#47;1.png' /> 
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en' />
+      </object>
+    </div>                
+    <script type='text/javascript'>                    
+    var divElement = document.getElementById('viz1615599222458');                    
+    var vizElement = divElement.getElementsByTagName('object')[0];                    
+    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</div>
+<div style="text-align:center; margin-bottom:60px; margin-top: -50px; font-size: 20px;">Naitonal Park visitation has been booming over the past 10 years! Almost every park, outside of a handful, had a growth in visitation. Some parks saw an increase of visitors by the thousands, others by the millions.</div>
+      
+
+<div style = "margin:auto">
+        <img style="display:block;"src="Park_Visitation_NonNative_Species_withCircles.png">
+        <div style="text-align:center; margin-bottom:20px; font-size: 20px;">a scattered positive correlation with some potential outliers (circled in red)</div>
+      </div>  
+    <br>
+      
+      <div style = "margin:auto">
+          <img style="display:block;" src="AverageVisitors_NonNativeSpecies.png">
+          <div style="text-align:center; margin-bottom:20px; font-size: 20px;">blblblblbl</div>
+        </div>
+
+    <div style = "margin:auto">
+      <img style="display:block;"src="log_AverageVisitors_log_NonNative.png">
+      <div style="text-align:center; margin-bottom:20px;">A logarithmic transformation done on both X and y variables</div>
+      </div>
+   
+  
+    <!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<!-- API key -->
+
+<script type="text/javascript" src="config.js"></script>
+<!-- <script type="text/javascript" src="static/js/cities.js"></script>-->
+<!-- Our JavaScript -->
+<script type="text/javascript" src="script.js"></script>
+
+
+
+    
+</body>
+</html>
