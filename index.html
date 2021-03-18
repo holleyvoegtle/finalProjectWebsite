@@ -61,7 +61,7 @@
         <div class="col-lg-8 mx-auto">
           <h2>Overview</h2>
           <p class="lead">For our group project, we are looking at biodiversity in National Parks. We came to a consensus to choose this data set because we are all passionate about the environment.
-            The selected dataset contains three csv files- one including species data, another containing data on the parks themselves and the third including annual visitation to the parks. More specifically, the species csv has information on classification of certain animals, which parks they can be found in, and how common they are among other things. The parks csv contains information on coordinates and acreage of the parks as well as which respective states they are located in. We also cleaned up the data and created an additional csv that included native vs non-native species. Contributors:</p>
+            <br>The selected dataset contains three csv files- one including species data, another containing data on the parks themselves and the third including annual visitation to the parks. More specifically, the species csv has information on classification of certain animals, which parks they can be found in, and how common they are among other things. The parks csv contains information on coordinates and acreage of the parks as well as which respective states they are located in. We also cleaned up the data and created an additional csv that included native vs non-native species. <br>Contributors:</p>
           <ul>
             <li>Carmen Castanette</li>
             <li>Kevin Green</li>
@@ -74,16 +74,13 @@
       <p class="lead">The initial question we investigated was to see if the increase in visitors to a park would increase the non-native species found there. Further investigation of the data also looked to see if there were any correlations to parameters such as location of the park and the presence of non-native species, grouped categories such as mammals, reptiles, plants, etc, and finally a correlation matrix.</p>
       <h4>Resources</h4>
       <ul>
-        <li>Data:
-          <br>
+        
+          <li>Data</li><a href="https://www.kaggle.com/nationalparkservice/park-biodiversity/code">
+          https://irma.nps.gov/STATS/SSRSReports/National%20Reports/Annual%20Visitation%20By%20Park%20(1979%20-%20Last%20Calendar%20Year)</a>
+          
+        <li>Presentation:</li>
 
-          https://www.kaggle.com/nationalparkservice/park-biodiversity/code
-          https://irma.nps.gov/STATS/SSRSReports/National%20Reports/Annual%20Visitation%20By%20Park%20(1979%20-%20Last%20Calendar%20Year)
-          </li>
-        <li>Presentaion:
-          <br>
-
-          https://docs.google.com/presentation/d/13Fxq3_L9WtVU9MQCDZ9MckQbnxAd2lvvS9wCFA8NcTg/edit?usp=sharing
+          <a href="https://docs.google.com/presentation/d/13Fxq3_L9WtVU9MQCDZ9MckQbnxAd2lvvS9wCFA8NcTg/edit?usp=sharing">https://docs.google.com/presentation/d/13Fxq3_L9WtVU9MQCDZ9MckQbnxAd2lvvS9wCFA8NcTg/edit?usp=sharing</a>
           </li>
         <li>Software, Technologies, and Tools Utilized:
           <br>
@@ -104,12 +101,30 @@
           <p class="lead">As with most data that is open source, our data needed to be extracted, transformed, and loaded (ETL). A number of DataFrames were created in Jupyter notebook (Python) and the use of Postgres was utilized for these DataFrames. From there linear regressions were tested and graphs were created.
 
           <h2>Database</h2>
-          <p class="lead">For our database, we utilized Amazon Web Services to host a Postgres Relational Database Service (RDS). Various tables were loaded into Postgres using SQL through PGAdmin including our final machine learning table. This allowed all team members to access the database server through PGAdmin as tables were updated and added throughout the course of the project.</p>
+          <p class="lead">For our database, we utilized Amazon Web Services to host a Postgres Relational Database Service (RDS). Various tables were loaded into Postgres using SQL through PGAdmin including our final machine learning table. This allowed all team members to access the database server through PGAdmin as tables were updated and added throughout the course of the project. Some minor data cleaning was done to make the primary key column "Park Name" There was also a join done to add the average park visitation to the parks table and create a table that separated all the categories per park into native or none native.</p>
             
           <h2>Machine Learning</h2>
           <p class="lead">Pre-Processing Data:
             The three csv's that were acquired from kaggle and loaded into our PostgresRDS needed to be transformed and merged into a final dataframe to feed the machine learning model. Below is an outline of steps that had to be completed for the final dataframe to come together:</p>
-            
+            <ul>
+              <li>
+                Load in tables from Postgres for initial dataframes
+              <li> 50 Entries needed rows shifted left that were entered incorrectly into Kaggle
+	            <li> This was found when exploring the 'Nativeness' attribute in the species.csv
+                <li>Rows were corrected and replaced in the main dataframe
+                  <li>The visitation table needed to have the 'Park Name' field adjusted to remove abbreviations to join dataframes on.
+                    <li>Sequoia and King's Canyon National Parks needed to have their data merged into a single dataframe entry.
+                      <li>The 'Park Name' Column was set as the index for all three dataframes.
+                        <li>All dataframes were checked for null values.
+                          <li>Native and Non-Native Species were totalled for each park using the "groupby" function.
+                            <li>A field for Total Species for each park was calculated by summing the total Non-Native, total Native, and total Unknown columns
+                              <li>A field for NonNative_Ratio was created by dividing the number of non-native species by the total species in each park.
+                                <li>Species in each park were grouped by "Category" and added as a row for each park.
+                                  <li>The species_df, parks_df, and visitation_df were merged to create a final dataframe
+                                    <li>The final biodiversity_clean_df was loaded into our Postgres RDS to be used in the machine learning Jupyter Notebook.
+              </li>
+            </ul>
+            <p class="lead">For a detailed explanation see the README file: <a href="https://github.com/holleyvoegtle/Final_group_project/blob/main/README.md">https://github.com/holleyvoegtle/Final_group_project/blob/main/README.md</a> </p>
         </div>
       </div>
     </div>
@@ -120,14 +135,53 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>Summary</h2>
-          <p class="lead">As were are analyzing our data, we plan to present the information found through the use of a dashboard in Tableau as well as an interactive map to allows the user to see the location of the parks and the presence of native and non-native species.</p>
-        </div>
+          <p class="lead">Not native species can also be referred to as invasive species. An invasive species is any type of organism that is not native to an ecosystem. Invasive species pose a threat to parks & their native species by preying on native species, outcompeting native species, causing or carrying disease, preventing native species from reproducing and more. They are primarily introduced through human activities, unintentionally. The introduction of invaise species cause environmental and even economic harm. If left unmanaged, invasive species can cost billions of dollars to eradicate. For these reasons, national parks work tirelessly to evaluate, track and manage species found within parks to avoid the spread of invasive species. It is very important to analyze any and all trends that can share a relationship to the number or growth of invasive species.
+
+            <br>Through our analysis we found a small positive correlation between the number average park visitors and the number of invasive species found. However, this was significantly less of a relationship than we had thought. Given not native species are usually introduced to an ecosystem through human activity, we thought there would be a high correlation between number of not native species and average park visitors.
+            
+            <br>A small correlation could mean a number of things. Some plausible explanations to a small correlation include:</p>
+            <ul>
+              <li> The parks are taking effective action to curb invasive species from being brought into parks
+                <li> Our data isn't fully encompassing of the species found within parks
+                  <li> There are other factors outside of visitation and the variables in our dataset that can introduce or increase the number of invasive species
+              </li>
+            </ul>
+            <p class="lead">National park management on invasive species and other outside factors cannot be address by our existing dataset. However, there are some challenges within the quality or consistency of our existing dataset that can play into the small correlation found between the number of non native species recorded and average visition for parks. There were 119,248 species recorded over 55 national parks. However, over 25,000 entries were null. That equates to 21% of our data having null or blank entires. Additionally, over 7,000 entries were "unknown" species, meaning the observer did not know whether they were native or not native. The lack of or unclear entries in our dataset could have had an impact on the relationship we found between average visitation and the number of not native species found within national parks.
+
+              <br>
+              <br>Other interesting insights gathered from our dataset include:
+              <ul>
+                <li>Comparing visitation from 2010 and 2019, almost all parks saw an increase in visitation. Some parks saw their visitation increase by millions of visitors, such as Great Smoky Mountains National Park and the Rocky Mountain National Park.
+                  <li>Alaska has the largest amount of acres of land dedicated to national parks. There are over 31 million acres of land reserved for national parks in Alaska. 
+                    <li>Majority of species recorded within national parks were plants, probably because they are easier to catch & find.
+                      <li>Not native species accounted for less than 10% of species recorded.
+                  </li>
+              </ul>
+              <p class="lead">We feel there is a lot more that can be explored outside of what our original datasets provided us to better understand the relationship between invasive species and park visitation. Our datasets alone do not paint a full picture around what variables impact the introduction & number of invasive species found within national parks. 
+                
+                <br>
+                <br>Recommendations for future analysis & improvements include:
+                <ul>
+                  <li>Improving on the existing dataset with less null & unknown values. This dataset was last updated 4 years ago, maybe National Park service has released an updated version with less unknown and null values.
+                    <li>Finding other national park datasets around invasive species to explore what other variables might have a relationship with the number of invasive species found.
+                      <li>Searching for datasets around effective management at parks to discover if there is a low positive correlation due to effective invasive species management.
+                  </li>
+                </ul>
+                <p class="lead">If you would like more information on the National Park Services current efforets to limit invasive species those can be found here: 
+                  <p class="lead">If you would like more information on the National Park Services current efforets to limit invasive species those can be found here: <a href="https://www.nps.gov/articles/invasive-species.htm.">https://www.nps.gov/articles/invasive-species.htm.</a> </p>
+              </p>
+
+            </p>
+
+              
+        
+          </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-secondary">
     <div class="container">
       <p class="m-0 text-center text-white">UC Berkeley Data Analytics 2021</p>
     </div>
